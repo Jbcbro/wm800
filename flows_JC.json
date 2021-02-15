@@ -699,5 +699,32 @@
                 "e5cd8f75.6f2fe"
             ]
         ]
+    },
+    {
+        "id": "f0b075d0.524f28",
+        "type": "inject",
+        "z": "4074d503.6631ec",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            []
+        ]
     }
 ]
