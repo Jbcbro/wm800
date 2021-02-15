@@ -1,4 +1,4 @@
-wm800
+WM800 node red project.
 =====
 
 ### About
