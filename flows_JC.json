@@ -178,8 +178,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 50,
-        "y": 640,
+        "x": 1070,
+        "y": 240,
         "wires": [
             [
                 "e5cd8f75.6f2fe"
@@ -195,8 +195,8 @@
         "headers": {
             "content-type": "text/html"
         },
-        "x": 1240,
-        "y": 640,
+        "x": 2260,
+        "y": 240,
         "wires": []
     },
     {
@@ -220,8 +220,8 @@
         "colorlight": "#ffffff",
         "colordark": "#000000",
         "printstatus": true,
-        "x": 910,
-        "y": 540,
+        "x": 1930,
+        "y": 140,
         "wires": [
             [
                 "a8ba9aed.249a28"
@@ -239,8 +239,8 @@
         "syntax": "mustache",
         "template": "<img src=\"{{{payload}}}\">",
         "output": "str",
-        "x": 1040,
-        "y": 660,
+        "x": 2060,
+        "y": 260,
         "wires": [
             [
                 "3539295e.a3af36"
@@ -289,8 +289,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 830,
-        "y": 20,
+        "x": 770,
+        "y": 80,
         "wires": []
     },
     {
@@ -561,8 +561,8 @@
         "topic": "",
         "payload": "{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\",\"5\":\"F\",\"6\":\"17\",\"7\":\"0,23\"}",
         "payloadType": "json",
-        "x": 270,
-        "y": 520,
+        "x": 1290,
+        "y": 120,
         "wires": [
             [
                 "3472a62a.8115aa"
@@ -579,8 +579,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 520,
-        "y": 540,
+        "x": 1540,
+        "y": 140,
         "wires": [
             [
                 "1b6a21f8.dabeee",
@@ -600,8 +600,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 420,
+        "x": 1930,
+        "y": 20,
         "wires": []
     },
     {
@@ -614,8 +614,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 220,
-        "y": 660,
+        "x": 1240,
+        "y": 260,
         "wires": [
             [
                 "94d0923e.8669d"
@@ -636,8 +636,8 @@
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
         "keepMsgProperties": false,
-        "x": 430,
-        "y": 660,
+        "x": 1450,
+        "y": 260,
         "wires": [
             [],
             [
@@ -656,8 +656,8 @@
         "syntax": "mustache",
         "template": "{{payload}}",
         "output": "str",
-        "x": 700,
-        "y": 560,
+        "x": 1720,
+        "y": 160,
         "wires": [
             [
                 "c3b60347.29031"
@@ -685,8 +685,8 @@
         "topic": "",
         "payload": "{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\",\"5\":\"F\",\"6\":\"17\",\"7\":\"0,23\"}",
         "payloadType": "json",
-        "x": 110,
-        "y": 800,
+        "x": 1130,
+        "y": 400,
         "wires": [
             [
                 "e5cd8f75.6f2fe"
