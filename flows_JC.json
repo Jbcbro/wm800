@@ -1,5 +1,12 @@
 [
     {
+        "id": "8a2d878a.a3a5c8",
+        "type": "tab",
+        "label": "MODBUS COM1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "2c6eaed0.02a382",
         "type": "tab",
         "label": "HTTP Gen QR",
@@ -185,8 +192,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 130,
-        "y": 980,
+        "x": 110,
+        "y": 840,
         "wires": [
             [
                 "e5cd8f75.6f2fe"
@@ -668,6 +675,35 @@
         "wires": [
             [
                 "c3b60347.29031"
+            ]
+        ]
+    },
+    {
+        "id": "2c159fcf.2d267",
+        "type": "inject",
+        "z": "2c6eaed0.02a382",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\",\"5\":\"F\",\"6\":\"17\",\"7\":\"0,23\"}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1000,
+        "wires": [
+            [
+                "e5cd8f75.6f2fe"
             ]
         ]
     }
