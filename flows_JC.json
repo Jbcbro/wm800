@@ -21,13 +21,6 @@
         "info": ""
     },
     {
-        "id": "e1d6a6a1.aa3c28",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "e46ff4fb.d77fc8",
         "type": "modbus-client",
         "name": "",
@@ -667,8 +660,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 1030,
-        "y": 680,
+        "x": 130,
+        "y": 980,
         "wires": [
             [
                 "e5cd8f75.6f2fe"
@@ -684,8 +677,8 @@
         "headers": {
             "content-type": "text/html"
         },
-        "x": 2180,
-        "y": 560,
+        "x": 1280,
+        "y": 860,
         "wires": []
     },
     {
@@ -709,8 +702,8 @@
         "colorlight": "#ffffff",
         "colordark": "#000000",
         "printstatus": true,
-        "x": 1810,
-        "y": 560,
+        "x": 970,
+        "y": 740,
         "wires": [
             [
                 "a8ba9aed.249a28"
@@ -728,8 +721,8 @@
         "syntax": "mustache",
         "template": "<img src=\"{{{payload}}}\">",
         "output": "str",
-        "x": 2000,
-        "y": 560,
+        "x": 1100,
+        "y": 860,
         "wires": [
             [
                 "3539295e.a3af36"
@@ -1050,8 +1043,8 @@
         "topic": "",
         "payload": "{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\",\"5\":\"F\",\"6\":\"17\",\"7\":\"0,23\"}",
         "payloadType": "json",
-        "x": 1230,
-        "y": 420,
+        "x": 330,
+        "y": 720,
         "wires": [
             [
                 "3472a62a.8115aa"
@@ -1068,12 +1061,12 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1620,
-        "y": 480,
+        "x": 580,
+        "y": 740,
         "wires": [
             [
-                "c3b60347.29031",
-                "1b6a21f8.dabeee"
+                "1b6a21f8.dabeee",
+                "7083707e.f7f6b"
             ]
         ]
     },
@@ -1089,28 +1082,9 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1870,
-        "y": 320,
+        "x": 970,
+        "y": 620,
         "wires": []
-    },
-    {
-        "id": "7083707e.f7f6b",
-        "type": "template",
-        "z": "2c6eaed0.02a382",
-        "name": "",
-        "field": "qrcodeinput",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "234234234234234",
-        "output": "str",
-        "x": 1620,
-        "y": 700,
-        "wires": [
-            [
-                "c3b60347.29031"
-            ]
-        ]
     },
     {
         "id": "e5cd8f75.6f2fe",
@@ -1122,8 +1096,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1180,
-        "y": 560,
+        "x": 280,
+        "y": 860,
         "wires": [
             [
                 "94d0923e.8669d"
@@ -1144,8 +1118,8 @@
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
         "keepMsgProperties": false,
-        "x": 1390,
-        "y": 560,
+        "x": 490,
+        "y": 860,
         "wires": [
             [],
             [
@@ -1154,205 +1128,22 @@
         ]
     },
     {
-        "id": "3595f2bc.98995e",
-        "type": "http in",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "url": "qr",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 190,
-        "y": 480,
-        "wires": [
-            [
-                "cdcb81d.d8e2f8"
-            ]
-        ]
-    },
-    {
-        "id": "cdcb81d.d8e2f8",
-        "type": "function",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "func": "msg.payload = { \n    'fc': 3,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 7\n} \n return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 340,
-        "y": 360,
-        "wires": [
-            [
-                "95abc95a.2f92e8"
-            ]
-        ]
-    },
-    {
-        "id": "95abc95a.2f92e8",
-        "type": "modbus-flex-getter",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "logIOActivities": false,
-        "server": "211d2f3b.1c226",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "x": 550,
-        "y": 360,
-        "wires": [
-            [],
-            [
-                "b693e873.5ffb58"
-            ]
-        ]
-    },
-    {
-        "id": "b693e873.5ffb58",
-        "type": "function",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "func": "var d = msg.payload;\nvar mac = `${d[0]}-${d[1]}-${d[2]}-${d[3]}-${d[4]}-${d[5]}`;\nvar machineNumber = d[6];\n\nvar newMsg = {payload: mac}\nreturn newMsg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 760,
-        "y": 360,
-        "wires": [
-            [
-                "b2e9e85a.371c38",
-                "9fb6360c.0208a8"
-            ]
-        ]
-    },
-    {
-        "id": "288f4c38.da6e74",
-        "type": "inject",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\",\"5\":\"F\",\"6\":\"17\",\"7\":\"0,23\"}",
-        "payloadType": "json",
-        "x": 530,
-        "y": 240,
-        "wires": [
-            [
-                "b693e873.5ffb58"
-            ]
-        ]
-    },
-    {
-        "id": "b2e9e85a.371c38",
-        "type": "qrcode-generator",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "qrtype": "text2qr",
-        "text2qrText": "qrcodeinput",
-        "ssid": "",
-        "hiddenssid": false,
-        "wifitype": "",
-        "phonenum": "",
-        "smsphonenum": "",
-        "smstext": "",
-        "mailto": "",
-        "mailsubject": "",
-        "mailbody": "",
-        "latitude": "",
-        "longitude": "",
-        "colorlight": "#ffffff",
-        "colordark": "#000000",
-        "printstatus": true,
-        "x": 970,
-        "y": 360,
-        "wires": [
-            [
-                "591824e9.36c03c"
-            ]
-        ]
-    },
-    {
-        "id": "9fb6360c.0208a8",
-        "type": "debug",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "591824e9.36c03c",
+        "id": "7083707e.f7f6b",
         "type": "template",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<img src=\"{{{payload}}}\">",
-        "output": "str",
-        "x": 1160,
-        "y": 360,
-        "wires": [
-            [
-                "930576f5.af0a98"
-            ]
-        ]
-    },
-    {
-        "id": "b0bc2eec.74026",
-        "type": "template",
-        "z": "e1d6a6a1.aa3c28",
+        "z": "2c6eaed0.02a382",
         "name": "",
         "field": "qrcodeinput",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "234234234234234",
+        "template": "{{payload}}",
         "output": "str",
-        "x": 900,
-        "y": 560,
+        "x": 760,
+        "y": 760,
         "wires": [
             [
-                "b2e9e85a.371c38"
+                "c3b60347.29031"
             ]
         ]
-    },
-    {
-        "id": "930576f5.af0a98",
-        "type": "http response",
-        "z": "e1d6a6a1.aa3c28",
-        "name": "",
-        "statusCode": "200",
-        "headers": {
-            "content-type": "text/html"
-        },
-        "x": 1340,
-        "y": 360,
-        "wires": []
     }
 ]
