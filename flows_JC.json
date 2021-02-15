@@ -7,13 +7,6 @@
         "info": ""
     },
     {
-        "id": "1f88f690.e95cb9",
-        "type": "tab",
-        "label": "TCP from PLC",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "e46ff4fb.d77fc8",
         "type": "modbus-client",
         "name": "",
