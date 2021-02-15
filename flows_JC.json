@@ -1,12 +1,5 @@
 [
     {
-        "id": "8a2d878a.a3a5c8",
-        "type": "tab",
-        "label": "MODBUS COM1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "2c6eaed0.02a382",
         "type": "tab",
         "label": "HTTP Gen QR",
