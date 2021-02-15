@@ -2,7 +2,12 @@
     "name": "wm800",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-dashboard": "2.27.0",
+        "node-red-configurable-ping": "1.0.1",
+        "node-red-contrib-modbus": "5.13.3",
+        "node-red-contrib-qrcode-generator": "0.3.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows_JC.json",
