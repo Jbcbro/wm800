@@ -268,7 +268,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 80,
+        "x": 160,
         "y": 140,
         "wires": [
             [
@@ -303,7 +303,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 320,
+        "x": 400,
         "y": 140,
         "wires": [
             [
@@ -325,7 +325,7 @@
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
         "keepMsgProperties": false,
-        "x": 530,
+        "x": 610,
         "y": 140,
         "wires": [
             [],
@@ -341,7 +341,7 @@
         "z": "2c6eaed0.02a382",
         "name": "",
         "registerShowMax": 20,
-        "x": 770,
+        "x": 850,
         "y": 140,
         "wires": []
     },
@@ -417,8 +417,8 @@
         "host": "www.google.dk",
         "timeout": "5",
         "requests": "1",
-        "x": 380,
-        "y": 340,
+        "x": 1320,
+        "y": 480,
         "wires": [
             [
                 "2a6f74c5.90a22c"
@@ -446,8 +446,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 340,
+        "x": 1100,
+        "y": 480,
         "wires": [
             [
                 "74c28c0.82c0b74"
@@ -476,16 +476,16 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 590,
-        "y": 340,
+        "x": 1530,
+        "y": 480,
         "wires": [
             [
-                "24b2a306.fbe0ec",
-                "1b48ffdf.fcf7c"
+                "1b48ffdf.fcf7c",
+                "a2e924e5.940688"
             ],
             [
-                "3470ccdd.1c0914",
-                "1b48ffdf.fcf7c"
+                "1b48ffdf.fcf7c",
+                "dbbc03db.d4715"
             ]
         ]
     },
@@ -499,8 +499,8 @@
         "server": "211d2f3b.1c226",
         "emptyMsgOnFail": false,
         "keepMsgProperties": false,
-        "x": 850,
-        "y": 320,
+        "x": 2030,
+        "y": 460,
         "wires": [
             [],
             []
@@ -516,8 +516,8 @@
         "server": "211d2f3b.1c226",
         "emptyMsgOnFail": false,
         "keepMsgProperties": false,
-        "x": 840,
-        "y": 360,
+        "x": 2140,
+        "y": 540,
         "wires": [
             [],
             []
@@ -536,8 +536,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 830,
-        "y": 260,
+        "x": 1770,
+        "y": 400,
         "wires": []
     },
     {
@@ -574,7 +574,7 @@
         "type": "function",
         "z": "2c6eaed0.02a382",
         "name": "",
-        "func": "var d = msg.payload;\nvar mac = `${d[0]}-${d[1]}-${d[2]}-${d[3]}-${d[4]}-${d[5]}`;\nvar machineNumber = d[6];\n\nvar newMsg = {payload: mac}\nreturn newMsg;",
+        "func": "var d = msg.payload;\nvar mac = `${d[0]}-${d[1]}-${d[2]}-${d[3]}-${d[4]}-${d[5]}`;\nvar machineNumber = d[6];\nvar cutDepth = d[7]; //in mm\n\nvar newMsg = {payload: mac}\nreturn newMsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -600,8 +600,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1930,
-        "y": 20,
+        "x": 1790,
+        "y": 40,
         "wires": []
     },
     {
@@ -690,6 +690,42 @@
         "wires": [
             [
                 "e5cd8f75.6f2fe"
+            ]
+        ]
+    },
+    {
+        "id": "a2e924e5.940688",
+        "type": "function",
+        "z": "2c6eaed0.02a382",
+        "name": "",
+        "func": "msg.payload = { \n    'value': false, \n    'fc': 6,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 20\n} \n return msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1800,
+        "y": 460,
+        "wires": [
+            [
+                "24b2a306.fbe0ec"
+            ]
+        ]
+    },
+    {
+        "id": "dbbc03db.d4715",
+        "type": "function",
+        "z": "2c6eaed0.02a382",
+        "name": "",
+        "func": "msg.payload = { \n    'value': true, \n    'fc': 6,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 20\n} \n return msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1800,
+        "y": 520,
+        "wires": [
+            [
+                "3470ccdd.1c0914"
             ]
         ]
     }
