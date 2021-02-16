@@ -3,9 +3,9 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-configurable-ping": "1.0.1",
         "node-red-contrib-modbus": "5.13.3",
-        "node-red-contrib-qrcode-generator": "0.3.0"
+        "node-red-contrib-qrcode-generator": "0.3.0",
+        "node-red-contrib-isonline": "1.1.15"
     },
     "node-red": {
         "settings": {

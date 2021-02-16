@@ -410,22 +410,6 @@
         ]
     },
     {
-        "id": "74c28c0.82c0b74",
-        "type": "conf ping",
-        "z": "2c6eaed0.02a382",
-        "name": "",
-        "host": "www.google.dk",
-        "timeout": "5",
-        "requests": "1",
-        "x": 1320,
-        "y": 480,
-        "wires": [
-            [
-                "2a6f74c5.90a22c"
-            ]
-        ]
-    },
-    {
         "id": "755cb135.452b8",
         "type": "inject",
         "z": "2c6eaed0.02a382",
@@ -450,7 +434,7 @@
         "y": 480,
         "wires": [
             [
-                "74c28c0.82c0b74"
+                "1cc747eb.f32dc8"
             ]
         ]
     },
@@ -468,15 +452,15 @@
                 "vt": "str"
             },
             {
-                "t": "gt",
-                "v": "0",
+                "t": "eq",
+                "v": "true",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1530,
+        "x": 1490,
         "y": 480,
         "wires": [
             [
@@ -726,6 +710,21 @@
         "wires": [
             [
                 "3470ccdd.1c0914"
+            ]
+        ]
+    },
+    {
+        "id": "1cc747eb.f32dc8",
+        "type": "is online",
+        "z": "2c6eaed0.02a382",
+        "name": "",
+        "url": "www.google.dk",
+        "action": "0",
+        "x": 1320,
+        "y": 480,
+        "wires": [
+            [
+                "2a6f74c5.90a22c"
             ]
         ]
     }
