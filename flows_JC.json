@@ -1,6 +1,6 @@
 [
     {
-        "id": "2c6eaed0.02a382",
+        "id": "599d34db.077b0c",
         "type": "tab",
         "label": "HTTP Gen QR",
         "disabled": false,
@@ -29,6 +29,31 @@
         "clientTimeout": "1000",
         "reconnectOnTimeout": true,
         "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true
+    },
+    {
+        "id": "211d2f3b.1c226",
+        "type": "modbus-client",
+        "name": "PLC",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "tcpHost": "192.168.2.10",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
         "parallelUnitIdsAllowed": true
     },
     {
@@ -145,34 +170,9 @@
         }
     },
     {
-        "id": "211d2f3b.1c226",
-        "type": "modbus-client",
-        "name": "PLC",
-        "clienttype": "tcp",
-        "bufferCommands": true,
-        "stateLogEnabled": false,
-        "queueLogEnabled": false,
-        "tcpHost": "169.254.35.58",
-        "tcpPort": "502",
-        "tcpType": "DEFAULT",
-        "serialPort": "/dev/ttyUSB",
-        "serialType": "RTU-BUFFERD",
-        "serialBaudrate": "9600",
-        "serialDatabits": "8",
-        "serialStopbits": "1",
-        "serialParity": "none",
-        "serialConnectionDelay": "100",
-        "unit_id": "1",
-        "commandDelay": "1",
-        "clientTimeout": "1000",
-        "reconnectOnTimeout": true,
-        "reconnectTimeout": "2000",
-        "parallelUnitIdsAllowed": true
-    },
-    {
-        "id": "2f40f168.ee2b3e",
+        "id": "4f4e163.0866ae8",
         "type": "http in",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "url": "qr",
         "method": "get",
@@ -182,27 +182,27 @@
         "y": 240,
         "wires": [
             [
-                "e5cd8f75.6f2fe"
+                "ab643fdc.d56f5"
             ]
         ]
     },
     {
-        "id": "3539295e.a3af36",
+        "id": "8fb185a6.214bc8",
         "type": "http response",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "statusCode": "200",
         "headers": {
             "content-type": "text/html"
         },
-        "x": 2260,
+        "x": 1940,
         "y": 240,
         "wires": []
     },
     {
-        "id": "c3b60347.29031",
+        "id": "19cd9325.f7972d",
         "type": "qrcode-generator",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "qrtype": "text2qr",
         "text2qrText": "qrcodeinput",
@@ -220,18 +220,18 @@
         "colorlight": "#ffffff",
         "colordark": "#000000",
         "printstatus": true,
-        "x": 1930,
-        "y": 140,
+        "x": 1850,
+        "y": 60,
         "wires": [
             [
-                "a8ba9aed.249a28"
+                "2314d29.97efd2e"
             ]
         ]
     },
     {
-        "id": "a8ba9aed.249a28",
+        "id": "2314d29.97efd2e",
         "type": "template",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -239,18 +239,19 @@
         "syntax": "mustache",
         "template": "<img src=\"{{{payload}}}\">",
         "output": "str",
-        "x": 2060,
-        "y": 260,
+        "x": 2100,
+        "y": 140,
         "wires": [
             [
-                "3539295e.a3af36"
+                "4c32450a.29ab1c",
+                "8fb185a6.214bc8"
             ]
         ]
     },
     {
-        "id": "a570488c.3719b8",
+        "id": "24c4e47f.4baa2c",
         "type": "inject",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "props": [
             {
@@ -272,14 +273,14 @@
         "y": 140,
         "wires": [
             [
-                "43f246e3.5a54c8"
+                "e290bf37.87cdb"
             ]
         ]
     },
     {
-        "id": "7ca56250.772eac",
+        "id": "5de148f6.cc0458",
         "type": "debug",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -294,9 +295,9 @@
         "wires": []
     },
     {
-        "id": "43f246e3.5a54c8",
+        "id": "e290bf37.87cdb",
         "type": "function",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "func": "msg.payload = { \n    'fc': 3,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 7\n} \n return msg\n\n",
         "outputs": 1,
@@ -307,14 +308,14 @@
         "y": 140,
         "wires": [
             [
-                "86501a6a.9194d8"
+                "be3e7202.e1761"
             ]
         ]
     },
     {
-        "id": "86501a6a.9194d8",
+        "id": "be3e7202.e1761",
         "type": "modbus-flex-getter",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -330,15 +331,15 @@
         "wires": [
             [],
             [
-                "1b96f09.ed94a0f",
-                "7ca56250.772eac"
+                "c7ef0b36.bbe1e8",
+                "5de148f6.cc0458"
             ]
         ]
     },
     {
-        "id": "1b96f09.ed94a0f",
+        "id": "c7ef0b36.bbe1e8",
         "type": "modbus-response",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "registerShowMax": 20,
         "x": 850,
@@ -346,9 +347,9 @@
         "wires": []
     },
     {
-        "id": "995e9f47.aba62",
+        "id": "88a3ede3.5cac2",
         "type": "inject",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "props": [
             {
@@ -370,14 +371,14 @@
         "y": 240,
         "wires": [
             [
-                "b80fcbc0.250708"
+                "6bba894.e817d78"
             ]
         ]
     },
     {
-        "id": "b80fcbc0.250708",
+        "id": "6bba894.e817d78",
         "type": "function",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "func": "msg.payload = { \n    'value': -222, \n    'fc': 6,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 6\n} \n return msg\n\n",
         "outputs": 1,
@@ -388,31 +389,31 @@
         "y": 240,
         "wires": [
             [
-                "f2a153dd.082d7"
+                "4bce298c.6089b8"
             ]
         ]
     },
     {
-        "id": "f2a153dd.082d7",
+        "id": "4bce298c.6089b8",
         "type": "modbus-flex-write",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
         "server": "211d2f3b.1c226",
         "emptyMsgOnFail": false,
         "keepMsgProperties": false,
-        "x": 530,
-        "y": 240,
+        "x": 510,
+        "y": 260,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "755cb135.452b8",
+        "id": "1bc0ccae.4f1563",
         "type": "inject",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "props": [
             {
@@ -434,14 +435,14 @@
         "y": 480,
         "wires": [
             [
-                "1cc747eb.f32dc8"
+                "13228094.fb512f"
             ]
         ]
     },
     {
-        "id": "2a6f74c5.90a22c",
+        "id": "96745d8d.5eacf",
         "type": "switch",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -464,19 +465,19 @@
         "y": 480,
         "wires": [
             [
-                "1b48ffdf.fcf7c",
-                "a2e924e5.940688"
+                "581f18da.c43fc8",
+                "88a1b7e7.0c1cb8"
             ],
             [
-                "1b48ffdf.fcf7c",
-                "dbbc03db.d4715"
+                "581f18da.c43fc8",
+                "d184220d.fa5f9"
             ]
         ]
     },
     {
-        "id": "24b2a306.fbe0ec",
+        "id": "ac385043.6cd6e",
         "type": "modbus-flex-write",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "No internet",
         "showStatusActivities": false,
         "showErrors": false,
@@ -491,9 +492,9 @@
         ]
     },
     {
-        "id": "3470ccdd.1c0914",
+        "id": "99297d47.31b18",
         "type": "modbus-flex-write",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "Internet",
         "showStatusActivities": false,
         "showErrors": false,
@@ -508,9 +509,9 @@
         ]
     },
     {
-        "id": "1b48ffdf.fcf7c",
+        "id": "581f18da.c43fc8",
         "type": "debug",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -525,9 +526,9 @@
         "wires": []
     },
     {
-        "id": "3915db24.b793f4",
+        "id": "8498208b.d7b31",
         "type": "inject",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "props": [
             {
@@ -549,51 +550,32 @@
         "y": 120,
         "wires": [
             [
-                "3472a62a.8115aa"
+                "c1bc543a.b447b8"
             ]
         ]
     },
     {
-        "id": "3472a62a.8115aa",
+        "id": "c1bc543a.b447b8",
         "type": "function",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
-        "func": "var d = msg.payload;\nvar mac = `${d[0]}-${d[1]}-${d[2]}-${d[3]}-${d[4]}-${d[5]}`;\nvar machineNumber = d[6];\nvar cutDepth = d[7]; //in mm\n\nvar newMsg = {payload: mac}\nreturn newMsg;",
+        "func": "var d = msg.payload.data;\nvar mac = `${d[0]}-${d[1]}-${d[2]}-${d[3]}-${d[4]}-${d[5]}`;\n\nvar newMsg = {test: mac}\nnode.send(newMsg);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 1540,
-        "y": 140,
+        "y": 120,
         "wires": [
-            [
-                "1b6a21f8.dabeee",
-                "7083707e.f7f6b"
-            ]
+            []
         ]
     },
     {
-        "id": "1b6a21f8.dabeee",
-        "type": "debug",
-        "z": "2c6eaed0.02a382",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1790,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "e5cd8f75.6f2fe",
+        "id": "ab643fdc.d56f5",
         "type": "function",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
-        "func": "msg.payload = { \n    'fc': 3,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 7\n} \n return msg\n\n",
+        "func": "msg.payload = { \n    'fc': 3,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 8\n} \nnode.send(msg);\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -602,14 +584,14 @@
         "y": 260,
         "wires": [
             [
-                "94d0923e.8669d"
+                "242bda9e.c2dc96"
             ]
         ]
     },
     {
-        "id": "94d0923e.8669d",
+        "id": "242bda9e.c2dc96",
         "type": "modbus-flex-getter",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -618,69 +600,41 @@
         "useIOFile": false,
         "ioFile": "",
         "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "x": 1450,
-        "y": 260,
+        "emptyMsgOnFail": true,
+        "keepMsgProperties": true,
+        "x": 1410,
+        "y": 240,
         "wires": [
             [],
             [
-                "3472a62a.8115aa"
+                "5fc00fa1.bf9a8"
             ]
         ]
     },
     {
-        "id": "7083707e.f7f6b",
+        "id": "5fc00fa1.bf9a8",
         "type": "template",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "field": "qrcodeinput",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{payload}}",
+        "template": "{{payload.data}}",
         "output": "str",
-        "x": 1720,
-        "y": 160,
+        "x": 1660,
+        "y": 200,
         "wires": [
             [
-                "c3b60347.29031"
+                "19cd9325.f7972d",
+                "bc75c3b2.aa31b"
             ]
         ]
     },
     {
-        "id": "2c159fcf.2d267",
-        "type": "inject",
-        "z": "2c6eaed0.02a382",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\",\"5\":\"F\",\"6\":\"17\",\"7\":\"0,23\"}",
-        "payloadType": "json",
-        "x": 1130,
-        "y": 400,
-        "wires": [
-            [
-                "e5cd8f75.6f2fe"
-            ]
-        ]
-    },
-    {
-        "id": "a2e924e5.940688",
+        "id": "88a1b7e7.0c1cb8",
         "type": "function",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "func": "msg.payload = { \n    'value': false, \n    'fc': 6,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 20\n} \n return msg\n\n",
         "outputs": 1,
@@ -691,14 +645,14 @@
         "y": 460,
         "wires": [
             [
-                "24b2a306.fbe0ec"
+                "ac385043.6cd6e"
             ]
         ]
     },
     {
-        "id": "dbbc03db.d4715",
+        "id": "d184220d.fa5f9",
         "type": "function",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "func": "msg.payload = { \n    'value': true, \n    'fc': 6,\n    'unitid': 1, \n    'address': 0,\n    'quantity': 20\n} \n return msg\n\n",
         "outputs": 1,
@@ -709,14 +663,14 @@
         "y": 520,
         "wires": [
             [
-                "3470ccdd.1c0914"
+                "99297d47.31b18"
             ]
         ]
     },
     {
-        "id": "1cc747eb.f32dc8",
+        "id": "13228094.fb512f",
         "type": "is online",
-        "z": "2c6eaed0.02a382",
+        "z": "599d34db.077b0c",
         "name": "",
         "url": "www.google.dk",
         "action": "0",
@@ -724,8 +678,70 @@
         "y": 480,
         "wires": [
             [
-                "2a6f74c5.90a22c"
+                "96745d8d.5eacf"
             ]
         ]
+    },
+    {
+        "id": "e1fc2846.d3dae8",
+        "type": "http response",
+        "z": "599d34db.077b0c",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "text/html"
+        },
+        "x": 800,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2974e7b8.2af778",
+        "type": "http in",
+        "z": "599d34db.077b0c",
+        "name": "",
+        "url": "/test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 830,
+        "y": 380,
+        "wires": [
+            [
+                "e1fc2846.d3dae8"
+            ]
+        ]
+    },
+    {
+        "id": "4c32450a.29ab1c",
+        "type": "debug",
+        "z": "599d34db.077b0c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2270,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bc75c3b2.aa31b",
+        "type": "debug",
+        "z": "599d34db.077b0c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1860,
+        "y": 180,
+        "wires": []
     }
 ]
