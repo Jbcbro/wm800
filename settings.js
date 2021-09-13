@@ -120,15 +120,16 @@ module.exports = {
     // -----------------
     // To password protect the Node-RED editor and admin API, the following
     // property can be used. See http://nodered.org/docs/security.html for details.
-    adminAuth: {
+ adminAuth: {
         type: "credentials",
         users: [{
             username: "wheelrestore",
-            password: "$2b$08$6k2GqnwTaJj5xxbuaC5j1.APUWHBoc./ZxH/IKi.pLXgq..LVX8e2",
+            password: "$2a$08$qKH/ySpp/jCp4yz4WFdAA.Sw/2KvlniO4o8X4ictow/Rv1H9eMxJS",
             permissions: "*"
        }]
     },
 
+    // Pass: Jonas
     // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
     // the static content (httpStatic), the following properties can be used.
     // The pass field is a bcrypt hash of the password.
